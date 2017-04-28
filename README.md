@@ -16,6 +16,7 @@
 ``` 
 cd <directory>
 git clone https://github.com/anfederico/Flaskex (or manually download)
+cd Flaskex
 pip install -r requirements.txt
 python app.py
 ```
