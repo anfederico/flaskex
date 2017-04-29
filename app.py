@@ -68,21 +68,17 @@ def register():
 def settings():
     if session.get('logged_in'):
         if request.method == 'POST':
-            user, s = helpers.change_user()
-            if request.form['password'] != "":
-                user.password = helpers.hash_password(request.form['password'])
-            if request.form['email'] != "":
-                user.email = request.form['email']
-            if request.form['c1'] != "":
-                user.c1 = request.form['c1']
-            if request.form['c2'] != "":
-                user.c2 = request.form['c2']
-            s.commit()
+            password = request.form['password']
+            if password != "": 
+                password = helpers.hash_password(password)
+            email = request.form['email']
+            c1 = request.form['c1']
+            c2 = request.form['c2']
+            helpers.change_user(password=password, email=email, c1=c1, c2=c2)
             return json.dumps({'status': 'Saved'})
         user = helpers.get_user()
         return render_template('settings.html', user=user)
     return redirect(url_for('login'))
-
 
 # ======== Main =============================================================== #
 if __name__ == "__main__":
