@@ -4,10 +4,6 @@ from tabledef import *
 from contextlib import contextmanager
 import bcrypt
 
-
-# ======== Helpers =========================================================== #
-
-
 @contextmanager
 def session_scope():
     """Provide a transactional scope around a series of operations."""
@@ -21,7 +17,6 @@ def session_scope():
         raise
     finally:
         s.close()
-
 
 def get_session():
     return sessionmaker(bind=engine)()
@@ -40,13 +35,14 @@ def add_user(username, password, email, c1, c2):
         s.add(u)
         s.commit()
 
-
-def change_user():
+def change_user(**kwargs):
     username = session['username']
     with session_scope() as s:
         user = s.query(User).filter(User.username.in_([username])).first()
-        return user, s
-
+        for arg, val in kwargs.items():
+            if val != "":
+                setattr(user, arg, val)
+        s.commit()
 
 def hash_password(password):
     return bcrypt.hashpw(password.encode('utf8'), bcrypt.gensalt())
