@@ -1,10 +1,9 @@
+from settings import SQLALCHEMY_DATABASE_URI
 from sqlalchemy import create_engine
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
-from settings import SQLALCHEMY_DATABASE_URI
 
 Base = declarative_base()
-
 
 def db_connect():
     """
@@ -12,7 +11,6 @@ def db_connect():
     Returns sqlalchemy engine instance
     """
     return create_engine(SQLALCHEMY_DATABASE_URI)
-
 
 class User(Base):
     __tablename__ = "user"
@@ -27,6 +25,5 @@ class User(Base):
     def __repr__(self):
         return '<User %r>' % self.username
 
-engine = db_connect()
-# Create Models
-Base.metadata.create_all(engine)
+engine = db_connect() # Connect to database
+Base.metadata.create_all(engine) # Create Models

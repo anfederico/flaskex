@@ -1,7 +1,7 @@
 from flask import session
 from sqlalchemy.orm import sessionmaker
-from tabledef import *
 from contextlib import contextmanager
+from tabledef import *
 import bcrypt
 
 @contextmanager
@@ -21,13 +21,11 @@ def session_scope():
 def get_session():
     return sessionmaker(bind=engine)()
 
-
 def get_user():
     username = session['username']
     with session_scope() as s:
         user = s.query(User).filter(User.username.in_([username])).first()
         return user
-
 
 def add_user(username, password, email, c1, c2):
     with session_scope() as s:
@@ -47,7 +45,6 @@ def change_user(**kwargs):
 def hash_password(password):
     return bcrypt.hashpw(password.encode('utf8'), bcrypt.gensalt())
 
-
 def credentials_valid(username, password):
     with session_scope() as s:
         user = s.query(User).filter(User.username.in_([username])).first()
@@ -55,7 +52,6 @@ def credentials_valid(username, password):
             return bcrypt.checkpw(password.encode('utf8'), user.password)
         else:
             return False
-
 
 def username_taken(username):
     with session_scope() as s:

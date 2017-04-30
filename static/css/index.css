@@ -2,36 +2,36 @@
 body{ font-family: 'Raleway', sans-serif; }
 
 .navspace{
-	width: 50px;
-	height: 105px;
-	display: inline-block;
-	position: relative;
+    width: 50px;
+    height: 105px;
+    display: inline-block;
+    position: relative;
 }
 
 .navblock{
-	width: 50px;
-	height: 50px;	
-	display: block;
+    width: 50px;
+    height: 50px;
+    display: block;
 }
 
 .navcon{
-	width: 40px;
-	height: 40px;
-	float: left;	
-	padding-top: 5px;	
-	padding-left: 5px;		
+    width: 40px;
+    height: 40px;
+    float: left;
+    padding-top: 5px;
+    padding-left: 5px;
 }
  
 .navcon:hover{
-	width: 37.5px;
-	height: 37.5px;
+    width: 37.5px;
+    height: 37.5px;
 }
 
 .text{
-	font-size: 18px;
-	font-weight: 400;
-	padding-top: 12px;
-	position: absolute;
-	visibility: hidden;
-	color: #ffffff;
+    font-size: 18px;
+    font-weight: 400;
+    padding-top: 12px;
+    position: absolute;
+    visibility: hidden;
+    color: #ffffff;
 }

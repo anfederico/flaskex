@@ -2,28 +2,28 @@
 body{ font-family: 'Raleway', sans-serif; }
 
 input{
-	text-align: center;
-	padding: 8px;
-	margin-top: 5px;	
-	margin-bottom: 15px;	
+    text-align: center;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
 }
 
 .settingsbox{
-	margin-top: 25px;
-	text-align: center;
+    margin-top: 25px;
+    text-align: center;
 }
 
 .theme{
-	height: 30px;
-	width: 30px;
-	margin-top: 5px;	
-	margin-bottom: 15px;
-	background-color: Transparent;
-	border-radius: 15px;
-	border: none;
+    height: 30px;
+    width: 30px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    background-color: Transparent;
+    border-radius: 15px;
+    border: none;
 }
 
 .theme:hover{
-	outline: none;
-	box-shadow: 0 0 2px #ffffff;
+    outline: none;
+    box-shadow: 0 0 2px #ffffff;
 }

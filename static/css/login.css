@@ -3,39 +3,39 @@ body{ font-family: 'Raleway', sans-serif; }
 body{ background: linear-gradient(to right, #360033, #0b8793); }
 
 .logo{
-	width: 150px;
-	height: 150px;
-	display: block;
-	margin: 25 auto;
+    width: 150px;
+    height: 150px;
+    display: block;
+    margin: 25 auto;
 }
 
 .loginbox{
-	width: 300px;
-	margin: 0 auto; 	
-	background: rgba(255,255,255,0.05);
-	border: 1px solid rgba(255,255,255,0.3);
-	border-radius: 10px 10px 10px 10px;		
+    width: 300px;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 10px 10px 10px 10px;
 }
 
 .inputspace{
-	text-align: center;	
-	margin-top: 30px;
-	margin-bottom: 50px;	
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 50px;
 }
 
 .icon{
-	width: 20px;
-	height: 20px;
-	padding-top: 6px;
-	padding-left: 5px;
-	float: left; 
+    width: 20px;
+    height: 20px;
+    padding-top: 6px;
+    padding-left: 5px;
+    float: left; 
   position: absolute;
 }
 
 .inputtext{
-	height: 30px;	
-	width: 200px;
-	margin: 0 auto;
-	margin-bottom: 10px;	
-	text-align: left;
+    height: 30px;
+    width: 200px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    text-align: left;
 }

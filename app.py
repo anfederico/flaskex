@@ -7,13 +7,9 @@ import os
 
 engine = db_connect()
 app = Flask(__name__)
-app.config.from_object(__name__)
 
-
-# ======== Routing ============================================================ #
-
-# -------- Login -------------------------------------------------------------- #
-
+# ======== Routing =========================================================== #
+# -------- Login ------------------------------------------------------------- #
 @app.route('/', methods=['GET', 'POST'])
 def login():
     if not session.get('logged_in'):
@@ -29,18 +25,15 @@ def login():
                 return json.dumps({'status': 'Invalid user/pass'})
             return json.dumps({'status': 'Both fields required'})
         return render_template('login.html', form=form)
-
     user = helpers.get_user()
     return render_template('index.html', user=user)
-
 
 @app.route("/logout")
 def logout():
     session['logged_in'] = False
     return redirect(url_for('login'))
 
-
-# -------- Register ----------------------------------------------------------- #
+# -------- Register ---------------------------------------------------------- #
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if not session.get('logged_in'):
@@ -62,14 +55,13 @@ def register():
         return render_template('login.html', form=form)
     return redirect(url_for('login'))
 
-
-# -------- Settings ----------------------------------------------------------- #
+# -------- Settings ---------------------------------------------------------- #
 @app.route('/settings', methods=['GET', 'POST'])
 def settings():
     if session.get('logged_in'):
         if request.method == 'POST':
             password = request.form['password']
-            if password != "": 
+            if password != "":
                 password = helpers.hash_password(password)
             email = request.form['email']
             c1 = request.form['c1']
@@ -80,7 +72,7 @@ def settings():
         return render_template('settings.html', user=user)
     return redirect(url_for('login'))
 
-# ======== Main =============================================================== #
+# ======== Main ============================================================== #
 if __name__ == "__main__":
-    app.secret_key = os.urandom(12)
-    app.run(host='127.0.0.1', port='4201')
+    app.secret_key = os.urandom(12) # Generic key for dev purposes only
+    app.run(host='127.0.0.1', port='4200')
