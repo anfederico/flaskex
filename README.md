@@ -14,8 +14,8 @@
 
 ## Setup
 ``` 
-cd <directory>
-git clone https://github.com/anfederico/Flaskex (or manually download)
-pip install -r requirements.txt
-python app.py
+git clone https://github.com/anfederico/Flaskex #Clones the repository
+cd Flaskex #Changes directory to the one created by cloning
+pip install -r requirements.txt #Installs the requirements
+python app.py #Runs the application
 ```
