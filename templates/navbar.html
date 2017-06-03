@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="Anthony Federico" content="Flaskex">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+  </head>
+  <body>
+    <section class="hero is-white">
+      <nav class="nav">
+        <div class="nav-left">
+          <a href="/" class="nav-item">
+            <h6 class="subtitle">
+              <strong>Flaskex</strong>
+            </h6>
+          </a>
+        </div>
+        <div class="nav-item">
+          <div class="field is-grouped">
+            <p class="control">
+              <a href="/logout" class="button is-primary is-outlined">
+                <span>Logout</span>
+              </a>
+            </p>
+            <p class="control">
+              <a href="/settings" class="button is-primary is-outlined">
+                <span id="cog" class="icon">
+                  <i class="fa fa fa-cog"></i>
+                </span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </nav>
+    </section>
+    {% block content %}
+    {% endblock %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../static/js/scripts.js"></script>
+  </body>
+</html>
