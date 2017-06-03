@@ -49,7 +49,7 @@ def credentials_valid(username, password):
   with session_scope() as s:
     user = s.query(User).filter(User.username.in_([username])).first()
     if user:
-      return bcrypt.checkpw(password.encode('utf8'), user.password)
+      return bcrypt.checkpw(password.encode('utf8'), user.password.encode('utf8'))
     else:
       return False
 
