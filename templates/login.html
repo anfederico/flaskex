@@ -3,54 +3,61 @@
   <head>
     <meta charset="utf-8">
     <meta name="Anthony Federico" content="Flaskex">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../static/css/style.css">
   </head>
   <body>
+
     <section class="hero is-white is-medium">
-      <div class="hero-head">
-        <header class="nav">
-          <div class="container">
-            <div class="nav-left">
-              <a class="nav-item">
-                <h6 href="/" class="subtitle"><strong>Flaskex</strong></h6>
-              </a>
-            </div>
-            <div class="nav-right nav-menu">
-              <a class="nav-item">
-                <div class="field">
-                  <p class="control has-icons-left">
-                    <input class="login-input input is-small" type="text" id="login-user" placeholder="Username">
+      <nav class="navbar is-transparent">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://github.com/anfederico/Flaskex">
+            <img src="https://github.com/anfederico/Flaskex/raw/master/media/flaskex-logo.png" alt="Flaskex_logo">
+            <h6 href="/" class="subtitle"><strong>Flaskex</strong></h6>
+          </a>
+          <div id="navbar-burger-id" class="navbar-burger burger" data-target="navbar-menu-id">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
+        <div id="navbar-menu-id" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item">
+              <div class="field">
+                <p class="control has-icons-left">
+                  <input class="login-input input is-small is-success" type="text" id="login-user" placeholder="Username">
                     <span class="icon is-small is-left">
                       <i class="fa fa-user"></i>
                     </span>
-                  </p>
-                </div>
-              </a>
-              <a class="nav-item">
-                <div class="field">
-                  <p class="control has-icons-left">
-                    <input class="login-input input is-small" type="password" id="login-pass" placeholder="Password">
+                </p>
+              </div>
+            </a>
+            <a class="navbar-item">
+              <div class="field">
+                <p class="control has-icons-left">
+                  <input class="login-input input is-small is-success" type="password" id="login-pass" placeholder="Password">
                     <span class="icon is-small is-left">
                       <i class="fa fa-lock"></i>
                     </span>
-                  </p>
-                </div>
+                </p>
+              </div>
+            </a>
+            <span class="navbar-item">
+              <a id="login-button" class="button is-primary is-inverted">
+                <span class="icon">
+                  <i class="fa fa-check"></i>
+                </span>
+                <span>Login</span>
               </a>
-              <span class="nav-item">
-                <a id="login-button" class="button is-primary is-inverted">
-                  <span class="icon">
-                    <i class="fa fa-check"></i>
-                  </span>
-                  <span>Login</span>
-                </a>
-              </span>
-            </div>
+            </span>
           </div>
-        </header>
-      </div>
+        </div>
+      </nav>
     </section>
+    
     <title>Flaskex</title>
     <section class="hero is-primary is-bold is-medium">
       <div class="hero-body">
@@ -124,13 +131,13 @@
               </span>2017</a>
             </p>
             <p>
-              <a class="icon" href="http://anfederico.github.io" target="_blank">
+              <a class="icon has-text-primary" href="http://anfederico.github.io" target="_blank">
                 <i class="fa fa-globe"></i>
               </a>          
-              <a class="icon" href="https://github.com/anfederico" target="_blank">
+              <a class="icon has-text-primary" href="https://github.com/anfederico" target="_blank">
                 <i class="fa fa-github"></i>
               </a>
-              <a class="icon" href="mailto:anfed@bu.edu" target="_blank">
+              <a class="icon has-text-primary" href="mailto:anfed@bu.edu" target="_blank">
                 <i class="fa fa-envelope"></i>
               </a>
             </p>
@@ -138,7 +145,7 @@
         </div>
       </footer>
     </section>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="../static/js/scripts.js"></script> 
   </body>
