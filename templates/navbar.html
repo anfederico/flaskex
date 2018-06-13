@@ -8,7 +8,54 @@
     <link rel="stylesheet" href="../static/css/style.css">
   </head>
   <body>
+
     <section class="hero is-white">
+      <nav class="navbar is-transparent">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://github.com/anfederico/Flaskex">
+            <img src="https://github.com/anfederico/Flaskex/raw/master/media/flaskex-logo.png" alt="Flaskex_logo">
+            <h6 href="/" class="subtitle"><strong>Flaskex</strong></h6>
+          </a>
+          <div id="navbar-burger-id" class="navbar-burger burger" data-target="navbar-menu-id">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
+        <div id="navbar-menu-id" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item" href="/">
+              <span class="icon is-medium has-text-primary">
+                <i class="fa fa-home fa-2x"></i>
+              </span>
+            </a>
+          </div>
+
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="field is-grouped">
+                <p class="control">
+                  <a href="/logout" class="button is-primary is-outlined">
+                    <span>Logout</span>
+                  </a>
+                </p>
+                <p class="control">
+                  <a href="/settings" class="button is-primary is-outlined">
+                    <span id="cog" class="icon">
+                      <i class="fa fa fa-cog"></i>
+                    </span>
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </section>
+
+
+    <!--<section class="hero is-white">
       <nav class="nav">
         <div class="nav-left">
           <a href="/" class="nav-item">
@@ -34,7 +81,7 @@
           </div>
         </div>
       </nav>
-    </section>
+    </section>-->
     {% block content %}
     {% endblock %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
