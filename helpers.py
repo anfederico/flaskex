@@ -4,55 +4,63 @@ from contextlib import contextmanager
 from tabledef import *
 import bcrypt
 
+
 @contextmanager
 def session_scope():
-  """Provide a transactional scope around a series of operations."""
-  s = get_session()
-  s.expire_on_commit = False
-  try:
-    yield s
-    s.commit()
-  except:
-    s.rollback()
-    raise
-  finally:
-    s.close()
+    """Provide a transactional scope around a series of operations."""
+    s = get_session()
+    s.expire_on_commit = False
+    try:
+        yield s
+        s.commit()
+    except:
+        s.rollback()
+        raise
+    finally:
+        s.close()
+
 
 def get_session():
-  return sessionmaker(bind=engine)()
+    return sessionmaker(bind=engine)()
+
 
 def get_user():
-  username = session['username']
-  with session_scope() as s:
-    user = s.query(User).filter(User.username.in_([username])).first()
-    return user
+    username = session['username']
+    with session_scope() as s:
+        user = s.query(User).filter(User.username.in_([username])).first()
+        return user
+
 
 def add_user(username, password, email):
-  with session_scope() as s:
-    u = User(username=username, password=password, email=email)
-    s.add(u)
-    s.commit()
+    with session_scope() as s:
+        u = User(username=username, password=password, email=email)
+        s.add(u)
+        s.commit()
+
 
 def change_user(**kwargs):
-  username = session['username']
-  with session_scope() as s:
-    user = s.query(User).filter(User.username.in_([username])).first()
-    for arg, val in kwargs.items():
-      if val != "":
-        setattr(user, arg, val)
-    s.commit()
+    username = session['username']
+    with session_scope() as s:
+        user = s.query(User).filter(User.username.in_([username])).first()
+        for arg, val in kwargs.items():
+            if val != "":
+                setattr(user, arg, val)
+        s.commit()
+
 
 def hash_password(password):
-  return bcrypt.hashpw(password.encode('utf8'), bcrypt.gensalt())
+    return bcrypt.hashpw(password.encode('utf8'), bcrypt.gensalt())
+
 
 def credentials_valid(username, password):
-  with session_scope() as s:
-    user = s.query(User).filter(User.username.in_([username])).first()
-    if user:
-      return bcrypt.checkpw(password.encode('utf8'), user.password)
-    else:
-      return False
+    with session_scope() as s:
+        user = s.query(User).filter(User.username.in_([username])).first()
+        if user:
+            return bcrypt.checkpw(password.encode('utf8'), user.password)
+        else:
+            return False
+
 
 def username_taken(username):
-  with session_scope() as s:
-    return s.query(User).filter(User.username.in_([username])).first()
+    with session_scope() as s:
+        return s.query(User).filter(User.username.in_([username])).first()
