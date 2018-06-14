@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from settings import SQLALCHEMY_DATABASE_URI
 from sqlalchemy import create_engine
 from sqlalchemy import Column, Integer, String

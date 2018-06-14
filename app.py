@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from flask import Flask, redirect, url_for, render_template, request, session
 from forms import LoginForm
 from tabledef import *

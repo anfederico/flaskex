@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from flask import session
 from sqlalchemy.orm import sessionmaker
 from contextlib import contextmanager
