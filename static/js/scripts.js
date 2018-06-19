@@ -18,8 +18,9 @@ var login = function() {
            "password": $("#login-pass").val()},
     success(response){
       var status = JSON.parse(response)["status"];
-      if (status === "Login successful") {location.reload();}
-      else {error("login-input");}}
+      if (status === "Login successful") { location.reload(); }
+      else { error("login-input"); }
+    }
   });
 };
 
@@ -35,10 +36,10 @@ $(document).ready(function() {
       data: {"username": $("#signup-user").val(), 
              "password": $("#signup-pass").val(), 
              "email": $("#signup-mail").val()},
-      success: function(response) {
+      success(response) {
         var status = JSON.parse(response)["status"];
-        if (status === "Signup successful") {location.reload();}
-        else {message(status, shake=true, id="signup-box");}
+        if (status === "Signup successful") { location.reload(); }
+        else { message(status, shake=true, id="signup-box"); }
       }
     });
   });
