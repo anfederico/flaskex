@@ -16,7 +16,7 @@ var login = function() {
     url: "/",
     data: {"username": $("#login-user").val(), 
            "password": $("#login-pass").val()},
-    success: function(response){
+    success(response){
       var status = JSON.parse(response)["status"];
       if (status === "Login successful") {location.reload();}
       else {error("login-input");}}
@@ -51,7 +51,7 @@ $(document).ready(function() {
              "password": $("#settings-pass").val(), 
              "email": $("#settings-mail").val()},
       success: function(response){
-        message(JSON.parse(response)['status']);
+        message(JSON.parse(response)["status"]);
       }
     });
   });
