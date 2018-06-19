@@ -39,7 +39,7 @@ $(document).ready(function() {
       success(response) {
         var status = JSON.parse(response)["status"];
         if (status === "Signup successful") { location.reload(); }
-        else { message(status, true, id="signup-box"); }
+        else { message(status, true, "signup-box"); }
       }
     });
   });
