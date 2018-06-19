@@ -39,7 +39,7 @@ $(document).ready(function() {
       success(response) {
         var status = JSON.parse(response)["status"];
         if (status === "Signup successful") { location.reload(); }
-        else { message(status, shake=true, id="signup-box"); }
+        else { message(status, true, id="signup-box"); }
       }
     });
   });
@@ -51,7 +51,7 @@ $(document).ready(function() {
       data: {"username": $("#settings-user").val(), 
              "password": $("#settings-pass").val(), 
              "email": $("#settings-mail").val()},
-      success: function(response){
+      success(response){
         message(JSON.parse(response)["status"]);
       }
     });
