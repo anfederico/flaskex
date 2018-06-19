@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 
+from scripts import tabledef
+from scripts import forms
+from scripts import helpers
 from flask import Flask, redirect, url_for, render_template, request, session
-from forms import LoginForm
-from tabledef import *
-import helpers
 import json
+import sys
 import os
 
-engine = db_connect()
+
 app = Flask(__name__)
 
 
@@ -16,7 +17,7 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def login():
     if not session.get('logged_in'):
-        form = LoginForm(request.form)
+        form = forms.LoginForm(request.form)
         if request.method == 'POST':
             username = request.form['username'].lower()
             password = request.form['password']
@@ -42,7 +43,7 @@ def logout():
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if not session.get('logged_in'):
-        form = LoginForm(request.form)
+        form = forms.LoginForm(request.form)
         if request.method == 'POST':
             username = request.form['username'].lower()
             password = helpers.hash_password(request.form['password'])

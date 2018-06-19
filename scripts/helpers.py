@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
+from scripts import tabledef
 from flask import session
 from sqlalchemy.orm import sessionmaker
 from contextlib import contextmanager
-from tabledef import *
 import bcrypt
 
 
@@ -23,19 +23,19 @@ def session_scope():
 
 
 def get_session():
-    return sessionmaker(bind=engine)()
+    return sessionmaker(bind=tabledef.engine)()
 
 
 def get_user():
     username = session['username']
     with session_scope() as s:
-        user = s.query(User).filter(User.username.in_([username])).first()
+        user = s.query(tabledef.User).filter(tabledef.User.username.in_([username])).first()
         return user
 
 
 def add_user(username, password, email):
     with session_scope() as s:
-        u = User(username=username, password=password, email=email)
+        u = tabledef.User(username=username, password=password, email=email)
         s.add(u)
         s.commit()
 
@@ -43,7 +43,7 @@ def add_user(username, password, email):
 def change_user(**kwargs):
     username = session['username']
     with session_scope() as s:
-        user = s.query(User).filter(User.username.in_([username])).first()
+        user = s.query(tabledef.User).filter(tabledef.User.username.in_([username])).first()
         for arg, val in kwargs.items():
             if val != "":
                 setattr(user, arg, val)
@@ -56,7 +56,7 @@ def hash_password(password):
 
 def credentials_valid(username, password):
     with session_scope() as s:
-        user = s.query(User).filter(User.username.in_([username])).first()
+        user = s.query(tabledef.User).filter(tabledef.User.username.in_([username])).first()
         if user:
             return bcrypt.checkpw(password.encode('utf8'), user.password)
         else:
@@ -65,4 +65,4 @@ def credentials_valid(username, password):
 
 def username_taken(username):
     with session_scope() as s:
-        return s.query(User).filter(User.username.in_([username])).first()
+        return s.query(tabledef.User).filter(tabledef.User.username.in_([username])).first()
