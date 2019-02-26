@@ -24,7 +24,7 @@ class User(Base):
     id = Column(Integer, primary_key=True)
     username = Column(String(30), unique=True)
     password = Column(String(30))
-    email = Column(String(50))
+    email = Column(String(50), unique=True)
 
     def __repr__(self):
         return '<User %r>' % self.username
