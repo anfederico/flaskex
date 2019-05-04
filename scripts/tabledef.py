@@ -23,7 +23,7 @@ class User(Base):
 
     id = Column(Integer, primary_key=True)
     username = Column(String(30), unique=True)
-    password = Column(String(30))
+    password = Column(String(512))
     email = Column(String(50))
 
     def __repr__(self):

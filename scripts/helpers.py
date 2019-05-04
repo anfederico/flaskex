@@ -35,7 +35,7 @@ def get_user():
 
 def add_user(username, password, email):
     with session_scope() as s:
-        u = tabledef.User(username=username, password=password, email=email)
+        u = tabledef.User(username=username, password=password.decode('utf8'), email=email)
         s.add(u)
         s.commit()
 
@@ -58,7 +58,7 @@ def credentials_valid(username, password):
     with session_scope() as s:
         user = s.query(tabledef.User).filter(tabledef.User.username.in_([username])).first()
         if user:
-            return bcrypt.checkpw(password.encode('utf8'), user.password)
+            return bcrypt.checkpw(password.encode('utf8'), user.password.encode('utf8'))
         else:
             return False
 
