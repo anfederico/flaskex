@@ -80,8 +80,5 @@ def settings():
 # ======== Main ============================================================== #
 if __name__ == "__main__":
     app.secret_key = '123456789' # Generic key for dev purposes only
-    app.config['SESSION_TYPE'] = 'filesystem'
-    sess.init_app(app)
-
     # app.run(debug=True, use_reloader=True)
     app.run()
