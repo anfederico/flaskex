@@ -9,6 +9,7 @@ import sys
 import os
 
 app = Flask(__name__)
+app.secret_key = os.urandom(12)  # Generic key for dev purposes only
 
 # Heroku
 #from flask_heroku import Heroku
@@ -80,5 +81,4 @@ def settings():
 
 # ======== Main ============================================================== #
 if __name__ == "__main__":
-    app.secret_key = os.urandom(12)  # Generic key for dev purposes only
     app.run(debug=True, use_reloader=True)
