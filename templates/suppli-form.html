@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block body %}
+<h2> Prototype </h2>
+<form action="" method="post">
+  <p>
+      {{form.name.label}}<br>
+      {{form.name}}
+  </p>
+
+  <p>
+      {{form.native_country.label}}<br>
+      {{form.native_country}}
+  </p>
+
+  <p>
+      {{form.sex.label}}<br>
+      {{form.sex}}
+  </p>
+
+  <p>
+      {{form.race.label}}<br>
+      {{form.race}}
+  </p>
+
+  <p>
+      {{form.education_level.label}}<br>
+      {{form.education_level}}
+  </p>
+
+  <p>
+      {{form.work_class.label}}<br>
+      {{form.work_class}}
+  </p>
+
+  <p>
+      {{form.weekly_hours.label}}<br>
+      {{form.weekly_hours}}
+  </p>
+
+  <p>
+      {{form.education_level.label}}<br>
+      {{form.name}}
+  </p>
+
+  <p>
+      {{form.years_employed.label}}<br>
+      {{form.years_employed}}
+  </p>
+
+  <p>
+      {{form.income.label}}<br>
+      {{form.income}}
+  </p>
+
+
+  <p>{{form.submit()}}</p>
+{% endblock %}
