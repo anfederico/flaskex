@@ -3,6 +3,12 @@
 from scripts import tabledef
 from scripts import forms
 from scripts import helpers
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+# import seaborn as sns
+import pickle
+import sklearn
 from flask import Flask, redirect, url_for, render_template, request, session
 import json
 import sys
@@ -72,6 +78,7 @@ def settings():
             if password != "":
                 password = helpers.hash_password(password)
             email = request.form['email']
+            # print(email)
             helpers.change_user(password=password, email=email)
             return json.dumps({'status': 'Saved'})
         user = helpers.get_user()
@@ -80,11 +87,33 @@ def settings():
 
 
 # -------- Prototype Form ----------------------------------------------------------
-@app.route('/formTest')
+@app.route('/formTest', methods=['GET', 'POST'])
 def formTest():
     form = forms.PredictionForm()
     return render_template('suppli-form.html', form=form)
 
+# -------- prediction function -----------------------------------------------------
+def ValuePredictor(to_predict_list):
+    to_predict = np.array(to_predict_list).reshape(1,12)
+    loaded_model = pickle.load(open("./model/model_old.pkl","rb"))
+    result = loaded_model.predict(to_predict)
+    return result[0]
+
+# ------- predicted results --------------------------------------------------------
+@app.route('/result',methods = ['POST'])
+def result():
+    if request.method == 'POST':
+        to_predict_list = request.form.to_dict()
+        to_predict_list=list(to_predict_list.values())
+        to_predict_list = list(map(int, to_predict_list))
+        result = ValuePredictor(to_predict_list)
+        
+        if int(result)==1:
+            prediction='Income more than 50K'
+        else:
+            prediction='Income less that 50K'
+            
+        return render_template("result.html",prediction=prediction)
 
 # ======== Main ============================================================== #
 if __name__ == "__main__":

@@ -5,3 +5,8 @@ bcrypt
 requests
 flask-heroku
 gunicorn
+pandas
+numpy
+matplotlib
+sklearn
+pickle
