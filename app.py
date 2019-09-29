@@ -79,6 +79,13 @@ def settings():
     return redirect(url_for('login'))
 
 
+# -------- Prototype Form ----------------------------------------------------------
+@app.route('/formTest')
+def formTest():
+    form = forms.PredictionForm()
+    return render_template('suppli-form.html', form=form)
+
+
 # ======== Main ============================================================== #
 if __name__ == "__main__":
     app.run(debug=True, use_reloader=True)
