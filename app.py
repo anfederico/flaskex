@@ -10,7 +10,7 @@ import os
 
 app = Flask(__name__)
 app.secret_key = os.urandom(12)  # Generic key for dev purposes only
-
+# this is an update
 # Heroku
 #from flask_heroku import Heroku
 #heroku = Heroku(app)
