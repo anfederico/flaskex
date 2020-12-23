@@ -46,7 +46,7 @@ def change_user(**kwargs):
         user = s.query(tabledef.User).filter(tabledef.User.username.in_([username])).first()
         for arg, val in kwargs.items():
             if val != "":
-                setattr(user, arg, val)
+                setattr(user, arg, val.decode('utf8'))
         s.commit()
 
 
