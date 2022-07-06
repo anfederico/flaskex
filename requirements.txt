@@ -1,5 +1,5 @@
 Flask
-WTForms
+WTForms==1.0.1
 SQLAlchemy
 bcrypt
 requests
