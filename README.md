@@ -33,4 +33,4 @@ python app.py
 ```
 
 ## Contributing
-Please take a look at our [contributing](https://github.com/anfederico/Flaskex/blob/master/CONTRIBUTING.md) guidelines if you're interested in helping!
+Khairul Testing Website
